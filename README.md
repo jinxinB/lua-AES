@@ -92,13 +92,3 @@
 		Msg("decrypt Data:" .. sys.Convert(buf2 , T_Convert.HexText));
 	end
 	
-	-- Msg(string.char(table.unpack({0x31 , 0x32 , 0x33 , 0x34 , 0x35 , 0x36 , 0x37 , 0x38 , 0x39 , 0x30})));
-	
-	buf = ByteList:new();
-	buf2 = ByteList:new();
-	buf:SetString("12345");
-	buf2:SetString("67890");
-	-- buf = buf:Add(buf2);
-	buf = buf + buf2;
-	Msg(buf:GetString());
-  
