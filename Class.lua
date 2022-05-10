@@ -1,7 +1,7 @@
 
--- ÀàÄ¬ÈÏ³õÊ¼»¯º¯Êı ctor ½öÎªÀà³õÊ¼¶ÔÏóÊ±Ê¹ÓÃ£¬ÇÒ´´½¨Ê±±ØÈ»»á±»µ÷ÓÃ£¬ctorº¯Êı¿ÉÓÃÀ´ÔÚ´´½¨¶ÔÏóÊ±¹¹½¨Ä¬ÈÏ±äÁ¿
--- ÔÚ×ÓÀà³õÊ¼»¯Ê±£¬¿ÉÒÔÍ¨¹ıÀàÃûÇ°¼ÓË«ÏÂ»®Ïß"__"ÏÔÊ½ÒıÓÃ¸¸Àà¶ÔÏó²¢µ÷ÓÃÆäÖĞµÄ×Ô¶¨Òå³õÊ¼»¯º¯ÊıÀ´´«µİ²ÎÊı
--- ²ÎÊı £ºÀàÃû £¬¸¸ÀàÁĞ±í
+-- ç±»é»˜è®¤åˆå§‹åŒ–å‡½æ•° ctor ä»…ä¸ºç±»åˆå§‹å¯¹è±¡æ—¶ä½¿ç”¨ï¼Œä¸”åˆ›å»ºæ—¶å¿…ç„¶ä¼šè¢«è°ƒç”¨ï¼Œctorå‡½æ•°å¯ç”¨æ¥åœ¨åˆ›å»ºå¯¹è±¡æ—¶æ„å»ºé»˜è®¤å˜é‡
+-- åœ¨å­ç±»åˆå§‹åŒ–æ—¶ï¼Œå¯ä»¥é€šè¿‡ç±»åå‰åŠ åŒä¸‹åˆ’çº¿"__"æ˜¾å¼å¼•ç”¨çˆ¶ç±»å¯¹è±¡å¹¶è°ƒç”¨å…¶ä¸­çš„è‡ªå®šä¹‰åˆå§‹åŒ–å‡½æ•°æ¥ä¼ é€’å‚æ•°
+-- å‚æ•° ï¼šç±»å ï¼Œçˆ¶ç±»åˆ—è¡¨
 function Class(className, ...)
     if type(className) ~= "string" then
         error("class name must string type");
@@ -11,7 +11,7 @@ function Class(className, ...)
 	end
 	function cls:__ctor() -- On Init
 		self["__" .. className] = cls;
-		-- ¸¸Àà³õÊ¼»¯
+		-- çˆ¶ç±»åˆå§‹åŒ–
 		if cls.__supers ~= nil then
 			local k,super;
             for k,super in pairs(cls.__supers) do
@@ -20,14 +20,14 @@ function Class(className, ...)
                 end
             end
 		end
-		-- ³õÊ¼»¯
+		-- åˆå§‹åŒ–
 		cls.ctor(self);
 	end
     local supers = {...};
 	local k,super;
 	for k,super in ipairs(supers) do
 		if type(super) == "table" then
-			-- ¸½¼Ó¸¸ÁĞ±í
+			-- é™„åŠ çˆ¶åˆ—è¡¨
 			if super.__isClass and type(super.__className) == "string" then
 				cls.__supers = cls.__supers or {};
 				cls.__supers[super.__className] = super;
@@ -58,7 +58,7 @@ function Class(className, ...)
         local instance = obj or {};
         setmetatable(instance, {__index = self});
         instance.__class = self;
-		instance:__ctor(); -- ³õÊ¼»¯µ÷ÓÃ
+		instance:__ctor(); -- åˆå§‹åŒ–è°ƒç”¨
         return instance;
     end
     return cls;
